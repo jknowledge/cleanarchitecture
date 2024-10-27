@@ -1,20 +1,20 @@
 package de.jknowledge.cleanarchitecture.domain.dddbase;
 
+import jakarta.persistence.*;
+import org.springframework.data.domain.DomainEvents;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class AggregatRootBase implements AggregateRoot {
+@MappedSuperclass
+public abstract class AggregatRootBase extends DomainEntityBase implements AggregateRoot {
 
-    protected String id;
-
+    @Transient
     protected List<IntegrationEvent> integrationEvents = new LinkedList<>();
 
-    protected List<DomainEvent> domainEvents = new LinkedList<>();
-
-    protected AggregatRootBase() {
-        this.id = UUID.randomUUID().toString();
-    }
+    @Transient
+    public List<DomainEvent> domainEvents = new LinkedList<>();
 
     protected void addIntegrationEvent(IntegrationEvent event) {
         integrationEvents.add(event);
@@ -24,14 +24,12 @@ public abstract class AggregatRootBase implements AggregateRoot {
         domainEvents.add(event);
     }
 
-    public String getId() {
-        return this.id;
-    }
 
     public List<IntegrationEvent> getIntegrationEvents() {
         return this.integrationEvents;
     }
 
+    @DomainEvents
     public List<DomainEvent> getDomainEvents() {
         return this.domainEvents;
     }
