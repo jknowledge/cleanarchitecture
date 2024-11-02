@@ -18,7 +18,7 @@ Each <b><i>Aggregate Root</i></b> has a list of <b><i>Domain Events</i></b> and 
 <b>2.2 EventListener:</b>Handles <b><i>Application Events</i></b> (and in future can also handle Integration Events). Use Repositories to read / store data.
 
 <b>3. Infrastructure Layer</b><br>
-Holds Infrastructure. In this example there are JPA Repositories for storing and reading data in a H2 database. Can also habe infrastructure for ex. publishing events on a middleware, access 3rd party systems etc.
+Holds Infrastructure. In this example there are JPA Repositories for storing and reading data in a H2 database. Could also have infrastructure for ex. publishing events on a middleware, access 3rd party systems etc.
 
 ### Testing
 There are two kind of tests
