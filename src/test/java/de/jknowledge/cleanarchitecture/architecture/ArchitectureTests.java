@@ -42,12 +42,11 @@ public class ArchitectureTests {
     public void testLayers() {
         ArchRule rule = layeredArchitecture()
                 .consideringOnlyDependenciesInLayers()
-                .layer("Controller").definedBy("..controller..")
+                .layer("Application").definedBy("..application..")
                 .layer("Domain").definedBy("..domain..")
-                .layer("EventListener").definedBy("..eventlistener..")
-                .layer("Repository").definedBy("..repository..")
-                .whereLayer("Controller").mayNotBeAccessedByAnyLayer()
-                .whereLayer("EventListener").mayNotBeAccessedByAnyLayer()
+                .layer("Infrastructure").definedBy("..infrastructure..")
+                .whereLayer("Application").mayOnlyAccessLayers("Infrastructure", "Domain")
+                .whereLayer("Infrastructure").mayOnlyAccessLayers("Application", "Domain")
                 .whereLayer("Domain").mayNotAccessAnyLayer();
         rule.check(classedOfRootPackage);
     }
@@ -74,7 +73,7 @@ public class ArchitectureTests {
     }
 
     @Test
-    public void testEventListenerDependyOnlyOnOneRepository() {
+    public void testEventListenerDependOnlyOnOneRepository() {
         classes().should(notHaveMoreThanOneRepositoryDependency).check(eventListenerClasses);
     }
 

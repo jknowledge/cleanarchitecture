@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationEvent;
 
 public class OrderCreatedEvent extends ApplicationEvent implements IDomainEvent {
 
-    private OrderEntity order;
+    private final OrderEntity order;
 
     public OrderCreatedEvent(Object source, OrderEntity order) {
         super(source);

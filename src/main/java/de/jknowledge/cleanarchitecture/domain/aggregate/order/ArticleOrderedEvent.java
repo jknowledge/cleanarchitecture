@@ -9,9 +9,9 @@ import java.util.UUID;
 @Getter
 public class ArticleOrderedEvent extends ApplicationEvent implements IDomainEvent {
 
-    private UUID articleId;
+    private final UUID articleId;
 
-    private Integer amount;
+    private final Integer amount;
 
     public ArticleOrderedEvent(Object source, UUID articleId, Integer amount) {
         super(source);
