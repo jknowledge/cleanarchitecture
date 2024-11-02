@@ -5,7 +5,7 @@ import java.util.UUID;
 /**
  * Marker interface for domain entities
  */
-public interface DomainEntity {
+public interface IDomainEntity {
 
     UUID getId();
 }

@@ -1,13 +1,13 @@
 package de.jknowledge.cleanarchitecture.domain.aggregate.order;
 
-import de.jknowledge.cleanarchitecture.domain.dddbase.DomainEvent;
+import de.jknowledge.cleanarchitecture.domain.dddbase.IDomainEvent;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
 import java.util.UUID;
 
 @Getter
-public class ArticleOrderedEvent extends ApplicationEvent implements DomainEvent {
+public class ArticleOrderedEvent extends ApplicationEvent implements IDomainEvent {
 
     private UUID articleId;
 

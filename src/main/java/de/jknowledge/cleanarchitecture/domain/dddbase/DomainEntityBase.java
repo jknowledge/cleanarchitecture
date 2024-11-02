@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @MappedSuperclass
-public abstract class DomainEntityBase implements DomainEntity {
+public abstract class DomainEntityBase implements IDomainEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

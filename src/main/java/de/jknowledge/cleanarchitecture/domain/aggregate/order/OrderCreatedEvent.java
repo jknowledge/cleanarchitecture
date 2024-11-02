@@ -1,9 +1,9 @@
 package de.jknowledge.cleanarchitecture.domain.aggregate.order;
 
-import de.jknowledge.cleanarchitecture.domain.dddbase.DomainEvent;
+import de.jknowledge.cleanarchitecture.domain.dddbase.IDomainEvent;
 import org.springframework.context.ApplicationEvent;
 
-public class OrderCreatedEvent extends ApplicationEvent implements DomainEvent {
+public class OrderCreatedEvent extends ApplicationEvent implements IDomainEvent {
 
     private OrderEntity order;
 

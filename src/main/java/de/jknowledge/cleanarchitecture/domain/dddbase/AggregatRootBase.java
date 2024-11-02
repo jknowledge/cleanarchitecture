@@ -5,32 +5,31 @@ import org.springframework.data.domain.DomainEvents;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.UUID;
 
 @MappedSuperclass
-public abstract class AggregatRootBase extends DomainEntityBase implements AggregateRoot {
+public abstract class AggregatRootBase extends DomainEntityBase implements IAggregateRoot {
 
     @Transient
-    protected List<IntegrationEvent> integrationEvents = new LinkedList<>();
+    protected final List<IIntegrationEvent> integrationEvents = new LinkedList<>();
 
     @Transient
-    public List<DomainEvent> domainEvents = new LinkedList<>();
+    public final List<IDomainEvent> domainEvents = new LinkedList<>();
 
-    protected void addIntegrationEvent(IntegrationEvent event) {
+    protected void addIntegrationEvent(IIntegrationEvent event) {
         integrationEvents.add(event);
     }
 
-    protected void addDomainEvent(DomainEvent event) {
+    protected void addDomainEvent(IDomainEvent event) {
         domainEvents.add(event);
     }
 
 
-    public List<IntegrationEvent> getIntegrationEvents() {
+    public List<IIntegrationEvent> getIntegrationEvents() {
         return this.integrationEvents;
     }
 
     @DomainEvents
-    public List<DomainEvent> getDomainEvents() {
+    public List<IDomainEvent> getDomainEvents() {
         return this.domainEvents;
     }
 }

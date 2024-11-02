@@ -1,11 +1,10 @@
-package de.jknowledge.cleanarchitecture.controller.v1;
+package de.jknowledge.cleanarchitecture.application.controller.v1;
 
 import de.jknowledge.cleanarchitecture.domain.aggregate.stock.ArticleEntity;
 import de.jknowledge.cleanarchitecture.domain.aggregate.stock.StockEntity;
-import de.jknowledge.cleanarchitecture.repository.StockRepository;
+import de.jknowledge.cleanarchitecture.infrastructure.persistence.repository.IStockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +16,7 @@ import java.util.List;
 public class ArticleController {
 
     @Autowired
-    private StockRepository stockRepository;
+    private IStockRepository stockRepository;
 
     @GetMapping("/list")
     public List<ArticleModel> list() {

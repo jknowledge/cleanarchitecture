@@ -1,4 +1,4 @@
-package de.jknowledge.cleanarchitecture.controller.v1;
+package de.jknowledge.cleanarchitecture.application.controller.v1;
 
 import de.jknowledge.cleanarchitecture.domain.aggregate.order.OrderCreatedEvent;
 import de.jknowledge.cleanarchitecture.domain.aggregate.order.OrderEntity;
@@ -7,8 +7,6 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.*;
 
 @RestController
 @RequestMapping("/person/v1.0")

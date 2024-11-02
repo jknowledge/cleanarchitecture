@@ -1,11 +1,9 @@
 package de.jknowledge.cleanarchitecture.domain.aggregate.stock;
 
 import de.jknowledge.cleanarchitecture.domain.dddbase.AggregatRootBase;
-import de.jknowledge.cleanarchitecture.domain.dddbase.AggregateRoot;
+import de.jknowledge.cleanarchitecture.domain.dddbase.IAggregateRoot;
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Map;
 import java.util.UUID;
@@ -13,7 +11,7 @@ import java.util.UUID;
 @Entity
 @Table(name="stock")
 @Data
-public class StockEntity extends AggregatRootBase implements AggregateRoot {
+public class StockEntity extends AggregatRootBase implements IAggregateRoot {
 
     private String city;
 

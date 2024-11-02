@@ -1,19 +1,20 @@
 package de.jknowledge.cleanarchitecture.domain.aggregate.stock;
 
-import de.jknowledge.cleanarchitecture.domain.dddbase.DomainEntity;
 import de.jknowledge.cleanarchitecture.domain.dddbase.DomainEntityBase;
-import jakarta.persistence.*;
+import de.jknowledge.cleanarchitecture.domain.dddbase.IDomainEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name = "article")
 @Data
-public class ArticleEntity extends DomainEntityBase implements DomainEntity {
+public class ArticleEntity extends DomainEntityBase implements IDomainEntity {
 
     private String name;
+
 
     @Override
     public boolean equals(Object o) {

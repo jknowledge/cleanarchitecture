@@ -1,7 +1,7 @@
 package de.jknowledge.cleanarchitecture.domain.aggregate.order;
 
 import de.jknowledge.cleanarchitecture.domain.dddbase.AggregatRootBase;
-import de.jknowledge.cleanarchitecture.domain.dddbase.AggregateRoot;
+import de.jknowledge.cleanarchitecture.domain.dddbase.IAggregateRoot;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "orders")
 @Data
-public class OrderEntity extends AggregatRootBase implements AggregateRoot {
+public class OrderEntity extends AggregatRootBase implements IAggregateRoot {
 
     private String firstname;
 
